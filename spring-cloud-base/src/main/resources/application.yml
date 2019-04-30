@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    platform: mysql
+#    schema: classpath:schema.sql
+#    data: classpath:data.sql
+    url: jdbc:mysql://192.168.199.187:3306/testms?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: Liujc123
+##Mybatis config
+mybatis:
+  type-aliases-package: com.ms.springcloudbase.bean.*
+  mapper-locations: classpath:/mapper/*.xml
+pagehelper:
+  helperDialect: oracle
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  rowBoundsWithCount: true

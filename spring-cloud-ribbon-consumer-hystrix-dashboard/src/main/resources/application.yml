@@ -1,0 +1,9 @@
+eureka:
+  client:
+    serviceUrl:
+          defaultZone: http://192.168.1.174:5000/eureka/
+spring:
+  application:
+    name: ribbon-hystrixdashboard-consumer
+server:
+  port: 5006

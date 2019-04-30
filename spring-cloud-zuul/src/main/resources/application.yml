@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: zuulservice
+server:
+  port: 6001
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.1.174:5000/eureka/
+zuul:
+  routes:
+    api:
+        path: /**
+        serviceId: provider000
+
+#Spring cloud zuul 默认情况下，Zuul会代理所有注册到Eureka Server的微服务，
+#并且Zuul的路由规则如下：[http://ZUUL_HOST:ZUUL_PORT/]() 微服务在Eureka上的serviceId/**会被转发到serviceId对应的微服务。
+
+#我们注释 spring-cloud-zuul-service项目中关于路由的配置：
+#zuul:
+#  routes:
+#    api:
+#        path: /**
+#        serviceId: eureka-provider
+
+#访问:http://127.0.0.1:9000/eureka-provider/ ,Zuul 会去 Eureka 服务注册中心，找到eureka-provider服务以均衡负载的方式访问

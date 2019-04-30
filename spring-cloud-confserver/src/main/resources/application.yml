@@ -1,0 +1,40 @@
+#spring.cloud.config.server.git.uri：配置git仓库地址
+#spring.cloud.config.server.git.searchPaths：配置仓库路径
+#spring.cloud.config.label：配置仓库的分支
+#spring.cloud.config.server.git.username：访问git仓库的用户名
+#spring.cloud.config.server.git.password：访问git仓库的用户密码
+#{application}映射客户端的"spring.application.name"
+#{profile}映射客户端的"spring.profiles.active"（逗号分隔列表）
+#{label}它是服务端的特性，标记版本的一组配置文件
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/Aly622/spring-cloud-config.git
+          search-paths: spring-cloud-config  #github上面的文件夹路径
+          username: li_jian0812@126.com
+          password: lijian3546998
+      name: configServer
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+      host: 192.168.1.174
+      port: 5672
+      username: mquser
+      password: Liujc123
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.1.174:5000/eureka/
+server:
+  port: 7001
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,bus-refresh

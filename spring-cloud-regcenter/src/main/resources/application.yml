@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: regcenter
+server:
+  port: 5000
+
+eureka:
+  instance:
+    hostname: 192.168.20.212
+    #192.168.1.174
+#
+#由于服务本身就为注册中心，因此不需要注册自己，所有设置为false;
+#由于注册中心的职责就是维护服务实例，不需要去检索服务，所有设置为false;
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false #开启自我保护模式
+    eviction-interval-timer-in-ms: 30000 #清理无效节点,默认60*1000毫秒,即60秒
+#spring.security.user.name=user
+#spring.security.user.password=password
+#spring.security.user.roles=USER

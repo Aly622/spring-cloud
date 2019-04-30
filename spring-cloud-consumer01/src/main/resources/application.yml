@@ -1,0 +1,11 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.20.212:5000/eureka/
+spring:
+  application:
+    name: distributedLock-consumer
+server:
+  port: 8085
+
+
