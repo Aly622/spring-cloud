@@ -6,7 +6,6 @@ import com.netflix.zuul.exception.ZuulException;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.swing.StringUIClientPropertyKey;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,7 +21,6 @@ public class TokenFilter extends ZuulFilter {
         return "pre";//可以在请求被路由之前调用
     }
     /**
-     *
      filterType：返回一个字符串代表过滤器的类型，在zuul中定义了四种不同生命周期的过滤器类型，具体如下:
      pre：路由之前
      routing：路由之时
